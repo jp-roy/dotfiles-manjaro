@@ -1,0 +1,28 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"A File Icon",
+		"AdvancedNewFile",
+		"All Autocomplete",
+		"ApplySyntax",
+		"BracketHighlighter",
+		"Color Highlight",
+		"DocBlockr",
+		"Dockerfile Syntax Highlighting",
+		"Emmet",
+		"Git",
+		"GitGutter",
+		"ImageMagick",
+		"JSX",
+		"Material Theme",
+		"Package Control",
+		"Ruby on Rails snippets",
+		"SCSS",
+		"SublimeGit"
+	]
+}
+
