@@ -1,4 +1,3 @@
- 
 # Get External IP / local IPs
 alias ip="curl ipinfo.io/ip"
 alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
@@ -26,3 +25,5 @@ alias dt='gsettings set org.gnome.desktop.peripherals.touchpad send-events disab
 alias rc='rails c'
 
 alias gitretrievelost='git fsck --unreachable | grep commit | cut -d ' ' -f3 | xargs git log --merges --no-walk'
+
+alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME"
