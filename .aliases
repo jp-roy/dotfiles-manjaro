@@ -27,3 +27,10 @@ alias rc='rails c'
 alias gitretrievelost='git fsck --unreachable | grep commit | cut -d ' ' -f3 | xargs git log --merges --no-walk'
 
 alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME"
+alias dfst="dotfiles status"
+alias dfa="dotfiles add"
+alias dfc="dotfiles commit"
+alias dfc!="dotfiles commit -v --amend"
+alias dfp="dotfiles push origin master"
+alias dfp!="dotfiles push --force-with-lease origin master"
+alias dfl="dotfiles log --oneline"
