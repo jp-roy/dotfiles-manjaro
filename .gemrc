@@ -1,1 +1,9 @@
-/home/jp/code/jp-roy/dotfiles/gemrc
+---
+:backtrace: false
+:bulk_threshold: 1000
+:sources:
+- https://rubygems.org/
+:update_sources: true
+:verbose: true
+benchmark: false
+gem: "--no-document"
