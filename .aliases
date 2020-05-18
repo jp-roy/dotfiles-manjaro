@@ -1,1 +1,28 @@
-/home/jp/code/jp-roy/dotfiles/aliases
+ 
+# Get External IP / local IPs
+alias ip="curl ipinfo.io/ip"
+alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
+alias speedtest="wget -O /dev/null http://speedtest.wdc01.softlayer.com/downloads/test10.zip"
+
+# Quickly serve the current directory as HTTP
+alias serve='ruby -run -e httpd . -p 8000'  # Or python -m SimpleHTTPServer :)
+
+alias agu='sudo apt-get update -y'
+alias agg='sudo apt-get upgrade -y'
+alias agd='sudo apt-get dist-upgrade -y'
+alias aar='sudo apt autoremove'
+alias aac='sudo apt-get autoclean'
+alias dru='sudo do-release-upgrade'
+alias drud='sudo do-release-upgrade -d'
+alias maj='agu && agg && agd && aar && aac && dru'
+
+alias agc='sudo apt-get clean'
+alias rmct='sudo rm -rf ~/.cache/thumbnails/*'
+alias dothecleaning='agc && rmct'
+
+alias et='gsettings set org.gnome.desktop.peripherals.touchpad send-events enabled'
+alias dt='gsettings set org.gnome.desktop.peripherals.touchpad send-events disabled'
+
+alias rc='rails c'
+
+alias gitretrievelost='git fsck --unreachable | grep commit | cut -d ' ' -f3 | xargs git log --merges --no-walk'
