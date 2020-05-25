@@ -1,18 +1,3 @@
-[color]
-  branch = auto
-  diff = auto
-  interactive = auto
-  status = auto
-  ui = auto
-
-[color "branch"]
-  current = green
-  remote = yellow
-
-[core]
-  pager = less -FRSX
-	editor = vim
-
 [alias]
   co = checkout
   st = status -sb
@@ -38,17 +23,35 @@
   # Removes a file from the index
   unstage = reset HEAD --
 
+[branch "master"]
+  mergeoptions = --no-edit
+
+[color]
+  branch = auto
+  diff = auto
+  interactive = auto
+  status = auto
+  ui = auto
+
+[color "branch"]
+  current = green
+  remote = yellow
+
+[commit]
+  template = ~/.gitmessage
+
+[core]
+  pager = less -FRSX
+	editor = vim
+
 [help]
   autocorrect = 1
-
-[push]
-	default = simple
 
 [pull]
   rebase = true
 
-[branch "master"]
-  mergeoptions = --no-edit
+[push]
+	default = simple
 
 [user]
 	email = jproy@grazr.me
