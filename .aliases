@@ -23,8 +23,13 @@ alias et='gsettings set org.gnome.desktop.peripherals.touchpad send-events enabl
 alias dt='gsettings set org.gnome.desktop.peripherals.touchpad send-events disabled'
 
 alias rc='rails c'
+alias be='bundle exec'
 
 alias gitretrievelost='git fsck --unreachable | grep commit | cut -d ' ' -f3 | xargs git log --merges --no-walk'
+alias dup='git checkout develop && git fetch origin && echo && git log --oneline --decorate -20 develop..origin/develop && echo && git pull --quiet && git checkout -'
+alias mup='git checkout master && git fetch origin && echo && git log --oneline --decorate -20 master..origin/master && echo && git pull --quiet && git checkout -'
+alias grid='!git rebase -i $(git merge-base develop HEAD)'
+alias grim='!git rebase -i $(git merge-base master HEAD)'
 
 alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME"
 alias dfst="dotfiles status"
