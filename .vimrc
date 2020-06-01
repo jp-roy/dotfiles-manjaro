@@ -61,10 +61,17 @@ nnoremap <c-p> :Files<cr>
 noremap <Leader>o :NERDTreeToggle
 
 " Use a set of consistent VI keys to switch between vi panes
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
+" nnoremap <C-J> <C-W><C-J>
+" nnoremap <C-K> <C-W><C-K>
+" nnoremap <C-L> <C-W><C-L>
+" nnoremap <C-H> <C-W><C-H>
+
+let g:tmux_navigator_no_mappings = 1
+
+nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
+nnoremap <silent> <c-j> :TmuxNavigateDown<cr>
+nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
+nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
 
 " ================ SCROLLING ========================
 set scrolloff=8         "Start scrolling when we're 8 lines away from margins
@@ -80,6 +87,7 @@ endif
 
 call plug#begin('~/.vim/plugged')
   Plug 'ap/vim-css-color'                             " highlight hex values with their color
+  Plug 'christoomey/vim-tmux-navigator'               " Easily navigate between tmux / vim panes
   Plug 'godlygeek/tabular'                            " align stuff... like these vim comments
   Plug 'itchyny/lightline.vim'                        " customize status bar
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " fuzzy search for files
