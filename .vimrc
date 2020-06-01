@@ -1,11 +1,7 @@
-"turn on syntax highlighting
-syntax on
-
 " ================ GENERAL CONFIG ====================
 set autoread                   " Reload files changed outside vim
 set backspace=indent,eol,start " Allow backspace in insert mode
 set belloff=all								 " No sound
-set clipboard=unnamed          " copy to system clipboard
 set history=100                " Store lots of :cmdline history
 set laststatus=2               " Status line always on display
 set nobackup                   " Delete backup file upon successful save of original file
@@ -23,6 +19,15 @@ set showmode                   " Show current mode down the bottom
 set ttimeoutlen=0              " Doesn't wait after pressing ESC for another command
 set visualbell                 " No sounds
 
+syntax on                      " turn on syntax highlighting
+
+if has("multi_byte")
+	set encoding=utf-8
+	setglobal fileencoding=utf-8
+else
+	echoerr "Sorry, this version of (g)vim was not compiled with +multi_byte"
+endif
+
 " ================ SEARCH  ======================
 set hlsearch                   " highlight all search matches
 set incsearch
@@ -31,7 +36,7 @@ set wildmode=list:longest,full
 
 " ================ INDENTATION ======================
 set autoindent " auto indentation
-" set expandtab
+set expandtab
 set smartindent
 set smarttab
 set shiftwidth=2
@@ -42,6 +47,9 @@ set tabstop=2
 set textwidth=120
 set colorcolumn=+1
 
+" =============== CUSTOM REMAPS =====================
+let mapleader="ù"              " Map Leader key to ù
+
 " Auto indent pasted text
 nnoremap p p=`]<C-o>
 nnoremap P P=`]<C-o>
@@ -49,24 +57,19 @@ nnoremap P P=`]<C-o>
 " Map Ctrl + p to open fuzzy find (FZF)
 nnoremap <c-p> :Files<cr>
 
-" ================ SCROLLING ========================
-set scrolloff=8         "Start scrolling when we're 8 lines away from margins
-set sidescrolloff=15
-set sidescroll=1
+" Open NERDTree
+noremap <Leader>o :NERDTreeToggle
 
-if has("multi_byte")
-  set encoding=utf-8
-  setglobal fileencoding=utf-8
-else
-  echoerr "Sorry, this version of (g)vim was not compiled with +multi_byte"
-endif
-
+" Use a set of consistent VI keys to switch between vi panes
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-" map <C-O> :NERDTreeToggle<CR> " Need to fin a better remap for NerdTree
+" ================ SCROLLING ========================
+set scrolloff=8         "Start scrolling when we're 8 lines away from margins
+set sidescrolloff=15
+set sidescroll=1
 
 " ================ PLUGINS ========================
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -95,11 +98,11 @@ call plug#end()
 " ================ FZF layout ========================
 command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
 
-
 " ================ APPEARANCE ======================
 set background=dark
 colorscheme solarized8
 
+" lightline plugin config
 let g:lightline = {
 	\ 'colorscheme': 'solarized',
 	\ 'active': {
