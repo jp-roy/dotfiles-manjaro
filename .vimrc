@@ -4,13 +4,13 @@ syntax on
 " ================ GENERAL CONFIG ====================
 set autoread                   " Reload files changed outside vim
 set backspace=indent,eol,start " Allow backspace in insert mode
-set belloff=all
-set clipboard=unnamed      " copy to system clipboard
+set belloff=all								 " No sound
+set clipboard=unnamed          " copy to system clipboard
 set history=100                " Store lots of :cmdline history
-set laststatus=2
-set nobackup                   "
+set laststatus=2               " Status line always on display
+set nobackup                   " Delete backup file upon successful save of original file
 set nocompatible               " don't need to be compatible with old VI
-set noshowmode
+set noshowmode                 " Hide status line (--> it is actually displayed with lightline plugin)
 set noswapfile                 " turn off Swap Files
 set nowritebackup
 set number                     " Line numbers are good
@@ -18,13 +18,13 @@ set numberwidth=5
 set relativenumber             " show relative number lines
 set ruler                      " show row and column in footer
 set showcmd                    " Show incomplete cmds down the bottom
-set showmatch                     " show bracket matches
+set showmatch                  " show bracket matches
 set showmode                   " Show current mode down the bottom
 set ttimeoutlen=0              " Doesn't wait after pressing ESC for another command
 set visualbell                 " No sounds
 
 " ================ SEARCH  ======================
-set hlsearch                      " highlight all search matches
+set hlsearch                   " highlight all search matches
 set incsearch
 set wildmenu                   " enable bash style tab completion
 set wildmode=list:longest,full
@@ -54,17 +54,6 @@ set scrolloff=8         "Start scrolling when we're 8 lines away from margins
 set sidescrolloff=15
 set sidescroll=1
 
-let g:lightline = {
-  \ 'colorscheme': 'solarized',
-  \ 'active': {
-  \   'left': [ [ 'mode', 'paste' ],
-  \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-  \ },
-  \ 'component_function': {
-  \   'gitbranch': 'FugitiveHead'
-  \ },
-  \ }
-
 if has("multi_byte")
   set encoding=utf-8
   setglobal fileencoding=utf-8
@@ -77,7 +66,7 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-map <C-O> :NERDTreeToggle<CR>
+" map <C-O> :NERDTreeToggle<CR> " Need to fin a better remap for NerdTree
 
 " ================ PLUGINS ========================
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -110,3 +99,14 @@ command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-h
 " ================ APPEARANCE ======================
 set background=dark
 colorscheme solarized8
+
+let g:lightline = {
+	\ 'colorscheme': 'solarized',
+	\ 'active': {
+	\   'left': [ [ 'mode', 'paste' ],
+	\             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+	\ },
+	\ 'component_function': {
+	\   'gitbranch': 'FugitiveHead'
+	\ },
+\ }
