@@ -1,4 +1,3 @@
-
 if defined?(::Bundler)
   current_gemset = ENV['GEM_HOME']
   $LOAD_PATH.concat(Dir.glob("#{current_gemset}/gems/*/lib")) if current_gemset

@@ -15,7 +15,6 @@ set relativenumber             " show relative number lines
 set ruler                      " show row and column in footer
 set showcmd                    " Show incomplete cmds down the bottom
 set showmatch                  " show bracket matches
-set showmode                   " Show current mode down the bottom
 set ttimeoutlen=0              " Doesn't wait after pressing ESC for another command
 set visualbell                 " No sounds
 
@@ -60,12 +59,6 @@ nnoremap <c-p> :Files<cr>
 " Open NERDTree
 noremap <Leader>o :NERDTreeToggle
 
-" Use a set of consistent VI keys to switch between vi panes
-" nnoremap <C-J> <C-W><C-J>
-" nnoremap <C-K> <C-W><C-K>
-" nnoremap <C-L> <C-W><C-L>
-" nnoremap <C-H> <C-W><C-H>
-
 let g:tmux_navigator_no_mappings = 1
 
 nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
@@ -103,9 +96,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-surround'                           " change and add surrounds, []()''...
 call plug#end()
 
-" ================ FZF layout ========================
-command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
-
 " ================ APPEARANCE ======================
 set background=dark
 colorscheme solarized8
@@ -121,3 +111,11 @@ let g:lightline = {
 	\   'gitbranch': 'FugitiveHead'
 	\ },
 \ }
+
+" Triger `autoread` when files changes on disk
+autocmd FocusGained,BufEnter,CursorHold,CursorHoldI *
+        \ if mode() !~ '\v(c|r.?|!|t)' && getcmdwintype() == '' | checktime | endif
+
+" Notification after file change
+autocmd FileChangedShellPost *
+        \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
