@@ -59,13 +59,6 @@ nnoremap <c-p> :Files<cr>
 " Open NERDTree
 noremap <Leader>o :NERDTreeToggle
 
-let g:tmux_navigator_no_mappings = 1
-
-nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
-nnoremap <silent> <c-j> :TmuxNavigateDown<cr>
-nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
-nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
-
 " ================ SCROLLING ========================
 set scrolloff=8         "Start scrolling when we're 8 lines away from margins
 set sidescrolloff=15
@@ -95,6 +88,13 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-fugitive'                           " git wrapper
   Plug 'tpope/vim-surround'                           " change and add surrounds, []()''...
 call plug#end()
+
+" Vim Tmux navigator
+let g:tmux_navigator_no_mappings = 1
+nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
+nnoremap <silent> <c-j> :TmuxNavigateDown<cr>
+nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
+nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
 
 " ================ APPEARANCE ======================
 set background=dark
