@@ -18,8 +18,6 @@ set showmatch                  " show bracket matches
 set ttimeoutlen=0              " Doesn't wait after pressing ESC for another command
 set visualbell                 " No sounds
 
-syntax on                      " turn on syntax highlighting
-
 if has("multi_byte")
 	set encoding=utf-8
 	setglobal fileencoding=utf-8
@@ -42,10 +40,6 @@ set shiftwidth=2
 set softtabstop=2
 set tabstop=2
 
-" Make it obvious where 80 characters is
-set textwidth=120
-set colorcolumn=+1
-
 " =============== CUSTOM REMAPS =====================
 let mapleader="ù"              " Map Leader key to ù
 
@@ -63,6 +57,8 @@ noremap <Leader>o :NERDTreeToggle
 set scrolloff=8         "Start scrolling when we're 8 lines away from margins
 set sidescrolloff=15
 set sidescroll=1
+
+syntax on                      " turn on syntax highlighting
 
 " ================ PLUGINS ========================
 if empty(glob('~/.vim/autoload/plug.vim'))
