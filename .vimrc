@@ -101,7 +101,8 @@ let g:lightline = {
 	\ 'colorscheme': 'solarized',
 	\ 'active': {
 	\   'left': [ [ 'mode', 'paste' ],
-	\             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+	\             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ],
+  \   'right': [ [ 'lineinfo' ] ],
 	\ },
 	\ 'component_function': {
 	\   'gitbranch': 'FugitiveHead'
