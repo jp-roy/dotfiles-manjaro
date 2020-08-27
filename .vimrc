@@ -2,6 +2,7 @@
 set autoread                   " Reload files changed outside vim
 set backspace=indent,eol,start " Allow backspace in insert mode
 set belloff=all								 " No sound
+set clipboard=unnamedplus      " enable copy/pasting through vim/system clipboard
 set history=100                " Store lots of :cmdline history
 set laststatus=2               " Status line always on display
 set nobackup                   " Delete backup file upon successful save of original file
@@ -41,7 +42,8 @@ set softtabstop=2
 set tabstop=2
 
 " =============== CUSTOM REMAPS =====================
-let mapleader="ù"              " Map Leader key to ù
+nnoremap <SPACE> <Nop>
+let mapleader=" "              " Map Leader key to <Space>
 
 " Auto indent pasted text
 nnoremap p p=`]<C-o>
@@ -51,7 +53,12 @@ nnoremap P P=`]<C-o>
 nnoremap <c-p> :Files<cr>
 
 " Open NERDTree
-noremap <Leader>o :NERDTreeToggle
+noremap <Leader>o :NERDTreeToggle<ENTER>
+
+" Tabs
+noremap <Leader>n :tabnew<ENTER>
+noremap <Leader>h :tabprev<ENTER>
+noremap <Leader>l :tabnext<ENTER>
 
 " ================ SCROLLING ========================
 set scrolloff=8         "Start scrolling when we're 8 lines away from margins
