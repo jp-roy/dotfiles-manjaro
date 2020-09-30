@@ -55,6 +55,9 @@ nnoremap <c-p> :Files<cr>
 " Open NERDTree
 noremap <Leader>o :NERDTreeToggle<ENTER>
 
+" Save and run current test
+nnoremap <leader>t <Esc>:w<cr>:!bin/spring stop; rspec %<cr>
+
 " Tabs
 noremap <Leader>n :tabnew<ENTER>
 noremap <Leader>h :tabprev<ENTER>
@@ -66,6 +69,7 @@ set sidescrolloff=15
 set sidescroll=1
 
 syntax on                      " turn on syntax highlighting
+autocmd BufNewFile,BufRead *.arb set syntax=ruby
 
 " ================ PLUGINS ========================
 if empty(glob('~/.vim/autoload/plug.vim'))

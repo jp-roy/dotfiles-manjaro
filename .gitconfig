@@ -37,9 +37,6 @@
   current = green
   remote = yellow
 
-[commit]
-  template = ~/.gitmessage
-
 [core]
   pager = less -FRSX
 	editor = vim
