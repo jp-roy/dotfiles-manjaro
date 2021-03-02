@@ -22,6 +22,9 @@ alias dothecleaning='agc && rmct'
 alias et='gsettings set org.gnome.desktop.peripherals.touchpad send-events enabled'
 alias dt='gsettings set org.gnome.desktop.peripherals.touchpad send-events disabled'
 
+alias get_pass_login='history | cut -c 8- | tail -n 1 | sed -r "s/^pass\s.+\/(.+) \-c$/\1/"'
+alias pl='echo -n $(get_pass_login) | xclip -selection clipboard'
+
 alias be='bundle exec'
 alias rc='be rails c'
 

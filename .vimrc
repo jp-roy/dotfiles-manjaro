@@ -57,6 +57,7 @@ noremap <Leader>o :NERDTreeToggle<ENTER>
 
 " Save and run current test
 nnoremap <leader>t <Esc>:w<cr>:!bin/spring stop; rspec %<cr>
+nnoremap <leader>q <Esc>:w<cr>:!bin/rspec %<cr>
 
 " Tabs
 noremap <Leader>n :tabnew<ENTER>
