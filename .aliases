@@ -28,6 +28,8 @@ alias pl='echo -n $(get_pass_login) | xclip -selection clipboard'
 alias be='bundle exec'
 alias rc='be rails c'
 
+alias tn="tmux new -s tmux"
+
 alias gitretrievelost='git fsck --unreachable | grep commit | cut -d ' ' -f3 | xargs git log --merges --no-walk'
 alias dup='git checkout develop && git fetch origin && echo && git log --oneline --decorate -20 develop..origin/develop && echo && git pull --quiet && git checkout -'
 alias mup='git checkout master && git fetch origin && echo && git log --oneline --decorate -20 master..origin/master && echo && git pull --quiet && git checkout -'
@@ -44,6 +46,7 @@ alias dfp!="dotfiles push --force-with-lease origin master"
 alias dfl="dotfiles log --oneline"
 
 alias get_current_monitor="(xrandr --listmonitors | awk '\$1 == \"0:\" {print \$4}')"
+alias br="xrandr --output $(get_current_monitor) --brightness "
 alias br1="xrandr --output $(get_current_monitor) --brightness .1"
 alias br2="xrandr --output $(get_current_monitor) --brightness .2"
 alias br3="xrandr --output $(get_current_monitor) --brightness .3"
@@ -51,7 +54,7 @@ alias br4="xrandr --output $(get_current_monitor) --brightness .4"
 alias br5="xrandr --output $(get_current_monitor) --brightness .5"
 alias br6="xrandr --output $(get_current_monitor) --brightness .6"
 alias br7="xrandr --output $(get_current_monitor) --brightness .7"
-alias br8="xrandr --output $(get_current_monitor) --brightness .9"
+alias br8="xrandr --output $(get_current_monitor) --brightness .8"
 alias br9="xrandr --output $(get_current_monitor) --brightness .9"
 alias br10="xrandr --output $(get_current_monitor) --brightness 1"
 alias br11="xrandr --output $(get_current_monitor) --brightness 1.1"
