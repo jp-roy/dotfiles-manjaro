@@ -64,6 +64,14 @@ noremap <Leader>n :tabnew<ENTER>
 noremap <Leader>h :tabprev<ENTER>
 noremap <Leader>l :tabnext<ENTER>
 
+" ctags
+set tags+=.tags
+
+" https://github.com/tpope/gem-ctags
+nnoremap <leader>c :!gem install gem-ctags ; gem ctags ; ctags -R --languages=ruby --exclude=.git --exclude=log --exclude=tmp .<cr>
+nnoremap <leader>f <C-]>
+nnoremap <leader>s :tselect<CR>
+
 " ================ SCROLLING ========================
 set scrolloff=8         "Start scrolling when we're 8 lines away from margins
 set sidescrolloff=15
@@ -94,6 +102,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-commentary'                         " comment stuff out, like these comments
   Plug 'tpope/vim-eunuch'                             " UNIX shell commands
   Plug 'tpope/vim-fugitive'                           " git wrapper
+  Plug 'tpope/vim-rails'                              " Editing Ruby on Rails applications. Required for ctags gem inspection
+  Plug 'tpope/vim-bundler'                            " Goodies for bundler. Required for ctags gem inspection
   Plug 'tpope/vim-surround'                           " change and add surrounds, []()''...
 call plug#end()
 
