@@ -55,6 +55,9 @@ nnoremap <c-p> :Files<cr>
 " Open NERDTree
 noremap <Leader>o :NERDTreeToggle<ENTER>
 
+" Search from clipboard with Ag
+noremap <Leader>g :Ag <C-R>+<ENTER>
+
 " Save and run current test
 nnoremap <leader>t <Esc>:w<cr>:!bin/spring stop; rspec %<cr>
 nnoremap <leader>q <Esc>:w<cr>:!bin/rspec %<cr>
