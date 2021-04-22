@@ -75,6 +75,18 @@ nnoremap <leader>c :!gem install gem-ctags ; gem ctags ; ctags -R --languages=ru
 nnoremap <leader>f <C-]>
 nnoremap <leader>s :tselect<CR>
 
+" moving line up or down
+" https://vim.fandom.com/wiki/Mapping_fast_keycodes_in_terminal_Vim
+" https://stackoverflow.com/questions/49052619/any-mapping-in-vimrc-with-alt-isnt-working/57949115#57949115
+map <Esc>j <A-j>
+map <Esc>k <A-k>
+nnoremap <A-j> :m .+1<CR>==
+nnoremap <A-k> :m .-2<CR>==
+inoremap <A-j> <Esc>:m .+1<CR>==gi
+inoremap <A-k> <Esc>:m .-2<CR>==gi
+vnoremap <A-j> :m '>+1<CR>gv=gv
+vnoremap <A-k> :m '<-2<CR>gv=gv"
+
 " ================ SCROLLING ========================
 set scrolloff=8         "Start scrolling when we're 8 lines away from margins
 set sidescrolloff=15
