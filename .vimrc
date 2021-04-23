@@ -52,6 +52,9 @@ nnoremap P P=`]<C-o>
 " Map Ctrl + p to open fuzzy find (FZF)
 nnoremap <c-p> :Files<cr>
 
+" Search last Ag
+noremap <Leader>a q:?Ag<cr><cr>
+
 " Open NERDTree
 noremap <Leader>o :NERDTreeToggle<ENTER>
 
