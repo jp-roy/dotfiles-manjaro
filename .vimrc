@@ -111,6 +111,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-rails'                              " Editing Ruby on Rails applications. Required for ctags gem inspection
   Plug 'tpope/vim-bundler'                            " Goodies for bundler. Required for ctags gem inspection
   Plug 'tpope/vim-surround'                           " change and add surrounds, []()''...
+  Plug 'jiangmiao/auto-pairs'
 call plug#end()
 
 " Vim Tmux navigator
