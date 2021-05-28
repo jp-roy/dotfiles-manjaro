@@ -85,6 +85,7 @@ set sidescroll=1
 
 syntax on                      " turn on syntax highlighting
 autocmd BufNewFile,BufRead *.arb set syntax=ruby
+autocmd BufRead,BufNewFile *.arb setfiletype ruby
 
 " ================ PLUGINS ========================
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -127,14 +128,14 @@ call plug#end()
 let g:ale_fix_on_save = 1
 let g:ale_set_highlights = 0
 let g:ale_fixers = {
-         \ '*': ['remove_trailing_lines', 'trim_whitespace'],
-         \ 'javascript': ['eslint'],
-         \ 'ruby': ['rubocop'],
-         \ }
+      \ '*': ['remove_trailing_lines', 'trim_whitespace'],
+      \ 'javascript': ['eslint'],
+      \ 'ruby': ['rubocop'],
+      \ }
 
 let g:ale_linters = {
-       \   '*': ['remove_trailing_lines', 'trim_whitespace'],
-       \}
+      \   '*': ['remove_trailing_lines', 'trim_whitespace'],
+      \}
 
 " highlightedyank
 let g:highlightedyank_highlight_duration = 200
