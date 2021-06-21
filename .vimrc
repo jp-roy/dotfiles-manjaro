@@ -3,6 +3,7 @@ set autoread                   " Reload files changed outside vim
 set backspace=indent,eol,start " Allow backspace in insert mode
 set belloff=all                " No sound
 set clipboard=unnamedplus      " enable copy/pasting through vim/system clipboard
+set cul                        " highlights current line
 set history=100                " Store lots of :cmdline history
 set laststatus=2               " Status line always on display
 set nobackup                   " Delete backup file upon successful save of original file
