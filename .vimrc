@@ -202,3 +202,10 @@ autocmd FocusGained,BufEnter,CursorHold,CursorHoldI *
 " Notification after file change
 autocmd FileChangedShellPost *
         \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
+
+runtime macros/matchit.vim
+
+" Source the vimrc file after saving it
+if has("autocmd")
+  autocmd bufwritepost .vimrc source $MYVIMRC
+endif
