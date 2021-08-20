@@ -1,3 +1,10 @@
+if has("multi_byte")
+  set encoding=utf-8
+  setglobal fileencoding=utf-8
+else
+  echoerr "Sorry, this version of (g)vim was not compiled with +multi_byte"
+endif
+
 " ================ GENERAL CONFIG ====================
 set autoread                   " Reload files changed outside vim
 set backspace=indent,eol,start " Allow backspace in insert mode
@@ -20,13 +27,6 @@ set showmatch                  " show bracket matches
 set ttimeoutlen=0              " Doesn't wait after pressing ESC for another command
 set visualbell                 " No sounds
 
-if has("multi_byte")
-	set encoding=utf-8
-	setglobal fileencoding=utf-8
-else
-	echoerr "Sorry, this version of (g)vim was not compiled with +multi_byte"
-endif
-
 " ================ SEARCH  ======================
 set hlsearch                   " highlight all search matches
 set incsearch
@@ -42,6 +42,14 @@ set shiftwidth=2
 set softtabstop=2
 set tabstop=2
 
+" ================ CTAGS ======================
+set tags+=.tags
+
+" ================ SCROLLING ========================
+set scrolloff=8         "Start scrolling when we're 8 lines away from margins
+set sidescrolloff=15
+set sidescroll=1
+
 " =============== CUSTOM REMAPS =====================
 nnoremap <SPACE> <Nop>
 let mapleader=" "              " Map Leader key to <Space>
@@ -56,11 +64,14 @@ nnoremap <c-p> :Files<cr>
 " Search last Ag
 noremap <Leader>a q:?Ag<cr><cr>
 
-" Open NERDTree
-noremap <Leader>o :NERDTreeToggle<ENTER>
-
 " Search from clipboard with Ag
 noremap <Leader>g :Ag <C-R>+<ENTER>
+
+" bind \ (backward slash) to grep shortcut
+nnoremap \ :Ag<SPACE>
+
+" Open NERDTree
+noremap <Leader>o :NERDTreeToggle<ENTER>
 
 " Save and run current test
 nnoremap <leader>t <Esc>:w<cr>:!bin/spring stop; rspec %<cr>
@@ -71,18 +82,13 @@ noremap <Leader>n :tabnew<ENTER>
 noremap <Leader>h :tabprev<ENTER>
 noremap <Leader>l :tabnext<ENTER>
 
-" ctags
-set tags+=.tags
-
 " https://github.com/tpope/gem-ctags
 nnoremap <leader>c :!gem install gem-ctags ; gem ctags ; ctags -R --languages=ruby --exclude=.git --exclude=log --exclude=tmp .<cr>
 nnoremap <leader>f <C-]>
 nnoremap <leader>s :tselect<CR>
 
-" ================ SCROLLING ========================
-set scrolloff=8         "Start scrolling when we're 8 lines away from margins
-set sidescrolloff=15
-set sidescroll=1
+" Edit .vimrc
+nmap <leader>v :tabedit $MYVIMRC<CR>
 
 syntax on                      " turn on syntax highlighting
 autocmd BufNewFile,BufRead *.arb set syntax=ruby
