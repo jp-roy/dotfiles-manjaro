@@ -24,6 +24,15 @@ alias dt='gsettings set org.gnome.desktop.peripherals.touchpad send-events disab
 
 alias get_pass_login='history | cut -c 8- | tail -n 1 | sed -r "s/^pass\s.+\/(.+) \-c$/\1/"'
 alias pl='echo -n $(get_pass_login) | xclip -selection clipboard'
+passwin() {
+  # example : `passwin Email/jproy@mail.fr &`
+  # & is used to execute function in background */
+
+  file_path="/media/partage/$(pass $1)"
+  touch ${file_path}
+  sleep 15
+  rm -f ${file_path}
+}
 
 alias be='bundle exec'
 alias rc='be rails c'
