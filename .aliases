@@ -28,7 +28,7 @@ passwin() {
   # example : `passwin Email/jproy@mail.fr &`
   # & is used to execute function in background */
 
-  file_path="/media/partage/$(pass $1)"
+  file_path="/media/windows/$(pass $1)"
   touch ${file_path}
   sleep 15
   rm -f ${file_path}
