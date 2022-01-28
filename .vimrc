@@ -209,7 +209,9 @@ autocmd FileChangedShellPost *
 
 runtime macros/matchit.vim
 
-" Source the vimrc file after saving it
-if has("autocmd")
-  autocmd bufwritepost .vimrc source $MYVIMRC
-endif
+" Source vim configuration file whenever it is saved
+if has ('autocmd')          " Remain compatible with earlier versions
+ augroup Reload_Vimrc       " Group name.  Always use a unique name!
+    autocmd! BufWritePost $MYVIMRC source % | echom "Reloaded " . $MYVIMRC | redraw
+  augroup END
+endif " has autocmd
