@@ -53,3 +53,5 @@
 [user]
 	email = jproy@grazr.me
 	name = Jean-Philippe Roy
+[init]
+	defaultBranch = main
