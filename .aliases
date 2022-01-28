@@ -11,13 +11,25 @@ passwin() {
   # example : `passwin Email/jproy@mail.fr &`
   # & is used to execute function in background */
 
-  file_path="/media/windows/$(pass $1)"
+  file_path="/mnt/windows/$(pass $1)"
   touch ${file_path}
   sleep 15
   rm -f ${file_path}
 }
 
-alias be='bundle exec'
+passwin2() {
+# example : `passwin Email/jproy@mail.fr &`
+# & is used to execute function in background */
+
+  file_path="/mnt/windows/pwd"
+  echo $1
+  cat $1 > file_path
+  sleep 15
+  rm -f file_path
+}
+
+alias b="bundle"
+alias be='b exec'
 alias rc='be rails c'
 alias gctags='gem install gem-ctags ; gem ctags ; ctags -R --languages=ruby --exclude=.git --exclude=log --exclude=tmp .'
 
