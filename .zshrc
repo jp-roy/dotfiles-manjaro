@@ -17,3 +17,5 @@ if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
 fi
 
 source $ZSH/oh-my-zsh.sh
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh
